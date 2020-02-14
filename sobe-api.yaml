@@ -1,0 +1,34 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: sobe-api-svc
+  labels:
+    app: sobe-api
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: sobe-api
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sobe-api-deployment
+  labels:
+    app: sobe-api
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: sobe-api
+  template:
+    metadata:
+      labels:
+        app: sobe-api
+    spec:
+      containers:
+      - name: sobe-api
+        image: sobe:v1
+        ports:
+        - containerPort: 80

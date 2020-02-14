@@ -1,0 +1,5 @@
+TESTING=False
+DEBUG=False
+
+FILES_BASE_URL="http://localhost:5000/files/"
+
