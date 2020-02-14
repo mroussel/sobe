@@ -14,7 +14,8 @@ download_requests = {}
 
 @app.route('/')
 def root():
-    abort(403)
+    #abort(403)
+    return 'API root'
 
 
 @app.route('/request_download', methods = ['POST'])
