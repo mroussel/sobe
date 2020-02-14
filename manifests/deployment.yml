@@ -1,0 +1,16 @@
+apiVersion : apps/v1beta1
+kind: Deployment
+metadata:
+  name: sobev1 
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: sobev1 
+    spec:
+      containers:
+        - name: sobev1 
+          image: example01acr.azurecr.io/sobev1
+          ports:
+          - containerPort: 80
